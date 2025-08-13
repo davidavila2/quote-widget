@@ -1,10 +1,12 @@
-<div>
-  <button (click)="newQuote()">New Quote</button>
-
-  @if(quote.hasValue();) {
-    {{quote.value().quote}}
-    {{quote.value().author}}
-  } @else {
-
-  }
-</div>
+@if(quote.hasValue();) {
+  <div class="container mt-4">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Random Quote</h5>
+        <p class="card-text">{{ quote.value().quote }}</p>
+        <p class="card-text"><small class="text-muted">- {{ quote.value().author }}</small></p>
+        <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
+      </div>
+    </div>
+  </div>
+} 

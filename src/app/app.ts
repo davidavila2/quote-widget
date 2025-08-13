@@ -15,11 +15,11 @@ interface Quote {
   styleUrl: './app.scss'
 })
 export class App {
-  protected title = 'quotes-widget';
-  protected quote = httpResource<Quote>(() => `https://dummyjson.com/quotes/random`)
+  protected readonly title = 'quotes-widget';
+  protected readonly quote = httpResource<Quote>(() => `https://dummyjson.com/quotes/random`)
 
 
   protected newQuote(): void {
-    this.quote.reload()
+    this.quote.reload();
   }
 }
