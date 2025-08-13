@@ -1,12 +1,16 @@
-@if(quote.hasValue();) {
-  <div class="container mt-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Random Quote</h5>
-        <p class="card-text">{{ quote.value().quote }}</p>
-        <p class="card-text"><small class="text-muted">- {{ quote.value().author }}</small></p>
-        <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/random-quote">Quote App</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        @for(link of links; track link.route) {
+          <a class="nav-link" [routerLink]="link.route" >{{link.label}}</a>
+        }
       </div>
     </div>
   </div>
-} 
+</nav>
+<router-outlet></router-outlet>

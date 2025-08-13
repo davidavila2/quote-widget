@@ -1,25 +1,17 @@
 import { httpResource } from '@angular/common/http';
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-
-interface Quote {
-  id: string,
-  quote: string,
-  author: string
-}
+import { RouterOutlet, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
   protected readonly title = 'quotes-widget';
-  protected readonly quote = httpResource<Quote>(() => `https://dummyjson.com/quotes/random`)
-
-
-  protected newQuote(): void {
-    this.quote.reload();
-  }
+  protected readonly links = [
+    {route: '/random-quote', label: 'Random Quote'},
+    {route: '/quote-list', label: 'Quote List'}
+  ]
 }
