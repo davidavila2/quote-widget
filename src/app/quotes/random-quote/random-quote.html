@@ -1,12 +1,33 @@
 @if(quote.hasValue()) {
-  <div class="container mt-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Random Quote</h5>
-        <p class="card-text">{{ quote.value().quote }}</p>
-        <p class="card-text"><small class="text-muted">- {{ quote.value().author }}</small></p>
-        <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
-      </div>
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Random Quote</h5>
+      <p class="card-text">{{ quote.value().quote }}</p>
+      <p class="card-text">
+        <small class="text-muted">- {{ quote.value().author }}</small>
+      </p>
+      <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
     </div>
   </div>
-} 
+</div>
+} @else if(quote.isLoading()) {
+<div class="d-flex justify-content-center mt-4">
+  <div class="spinner-border" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>
+} @else if(quote.error()) {
+<div class="alert alert-danger mt-4" role="alert">
+  <h4 class="alert-heading">Error Loading A Random Quote</h4>
+  <p>
+    Sorry, there was an error loading the the random quote. Please try again
+    later.
+  </p>
+  <hr />
+  <p class="mb-0">
+    If the problem persists, please check your internet connection or contact
+    support.
+  </p>
+</div>
+}
