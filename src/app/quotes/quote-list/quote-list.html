@@ -11,6 +11,11 @@
               <p class="card-text">
                 <small class="text-muted">- {{ quote.author }}</small>
               </p>
+
+              <app-share-quote
+                [quote]="quote"
+                (share)="shareQuote(quote)"
+              ></app-share-quote>
             </div>
           </div>
         </div>

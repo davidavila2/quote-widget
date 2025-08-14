@@ -7,7 +7,13 @@
       <p class="card-text">
         <small class="text-muted">- {{ quote.value().author }}</small>
       </p>
-      <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
+      <div class="d-flex justify-content-between gap-2">
+        <button class="btn btn-primary" (click)="newQuote()">New Quote</button>
+        <app-share-quote
+          [quote]="quote.value()"
+          (share)="shareQuote(quote.value())"
+        ></app-share-quote>
+      </div>
     </div>
   </div>
 </div>
